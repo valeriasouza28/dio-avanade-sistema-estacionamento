@@ -10,6 +10,7 @@ namespace DesafioFundamentos.Models
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
+            //Verifica se o preço inicial ou o preço por hora é menor do que zero.
             if (precoInicial <= 0 || precoPorHora <= 0)
             {
                 throw new ArgumentException("Os preços devem ser números positivos.");
@@ -28,12 +29,13 @@ namespace DesafioFundamentos.Models
                     );
                 string placa = Console.ReadLine().ToUpper();
 
+                // Verifica se a placa é válida.
                 if (!ValidarPlaca(placa))
                 {
                     throw new ArgumentException($"A placa {placa} brasileira não foi identificada.");
 
-                }
-                if (veiculos.Contains(placa))
+                } 
+                if (veiculos.Contains(placa)) // Verifica se a placa já existe na lista
                 {
                     throw new InvalidOperationException("Este veículo já está estacionado.");
                 }
@@ -65,7 +67,7 @@ namespace DesafioFundamentos.Models
         {
             try
             {
-                if (veiculos.Count == 0)
+                if (veiculos.Count == 0) // Verifica se a lista de veículos está vazia
                 {
                     Console.WriteLine("Não há veículos estacionados para remover.");
                     return;
@@ -74,7 +76,7 @@ namespace DesafioFundamentos.Models
 
                 // Pedir para o usuário digitar a placa e armazenar na variável placa
                 string placa = Console.ReadLine().ToUpper();
-                if (!ValidarPlaca(placa))
+                if (!ValidarPlaca(placa)) // Verifica se a placa é válida
                 {
                     throw new ArgumentException($"A placa {placa} brasileira não foi identificada.");
                 }
@@ -84,8 +86,8 @@ namespace DesafioFundamentos.Models
                     throw new InvalidOperationException("O veículo não está estacionado aqui. Confira se digitou a placa corretamente.");
                 }
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
-                int horas; //= Convert.ToInt32(Console.ReadLine());//horas
-                if (!int.TryParse(Console.ReadLine(), out horas) || horas <= 0)
+                int horas;
+                if (!int.TryParse(Console.ReadLine(), out horas) || horas <= 0) // Verifica se as horas é um inteiro válido
                 {
                     throw new ArgumentException("Por favor, forneça um número válido de horas.");
 
@@ -113,6 +115,7 @@ namespace DesafioFundamentos.Models
                     valorTotal = precoInicial + precoPorHora * limiteMaximo + taxaAdicional;
                 }
 
+                //Remove veículo da lista
                 veiculos.Remove(placa);
 
                 Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
