@@ -36,3 +36,26 @@ Por último, deverá ser feito um menu interativo com as seguintes ações imple
 
 ## Solução
 O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+
+## Minha Solução
+
+### Método AdicionarVeiculo()
+- Este método solicita ao usuário a placa do veículo a ser estacionado, verifica se a placa está no formato correto e se o veículo já não está estacionado. Se tudo estiver correto, adiciona a placa à lista de veículos estacionados.
+
+### Método RemoverVeiculo()
+- Este método permite ao usuário remover um veículo do estacionamento. Primeiro, solicita a placa do veículo a ser removido, verifica se a placa está no formato correto e se o veículo está realmente estacionado. Em seguida, solicita ao usuário a quantidade de horas que o veículo permaneceu estacionado, calcula o valor total com base nas taxas de estacionamento definidas e remove o veículo da lista.
+
+### Método ListarVeiculos()
+- Este método lista todos os veículos atualmente estacionados no estacionamento.
+
+### Métodos de validação
+- ValidarPlaca(string placa): Verifica se uma placa de veículo está no formato correto, seguindo o padrão brasileiro.
+- ValidarTempoPermanencia(int tempo, out decimal taxaAdicional, decimal precoPorHora): Verifica se o tempo de permanência fornecido pelo usuário é válido e calcula uma taxa adicional, se necessário.
+### Exceções
+- O código lida com exceções que podem ocorrer durante a execução, como placa inválida, tentativa de remover um veículo não estacionado ou entrada inválida de horas.
+
+### Observações
+- O código é robusto, utilizando exceções para lidar com erros e fornecer mensagens claras ao usuário.
+- Usa expressões regulares para validar o formato da placa.
+- Calcula o valor do estacionamento com base nas horas de permanência e nas taxas definidas.
+- Fornece feedback ao usuário durante todo o processo de adição e remoção de veículos.
